@@ -1,0 +1,675 @@
+/* ===== RESET & BASE ===== */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: #0b0d14;
+  font-family: 'Segoe UI', Arial, sans-serif;
+  color: #e6e6ea;
+}
+
+a {
+  text-decoration: none;
+}
+
+/* ===== HEADER ===== */
+header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 40px;
+  background: #10121c;
+  border-bottom: 1px solid #22242f;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 19px;
+  font-weight: 700;
+  color: #fff;
+}
+
+.logo-icon {
+  width: 30px;
+  height: 30px;
+  border-radius: 8px;
+  background: linear-gradient(135deg, #7c5cff, #2ee6a8);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 13px;
+  color: #10121c;
+  font-weight: 800;
+}
+
+.logo .hub {
+  color: #8b7bff;
+}
+
+nav {
+  display: flex;
+  gap: 30px;
+}
+
+nav a {
+  color: #a9abb8;
+  font-size: 15px;
+  padding: 6px 4px;
+}
+
+nav a.active {
+  color: #fff;
+  background: #211f3d;
+  border: 1px solid #4c3fc9;
+  border-radius: 6px;
+  padding: 6px 14px;
+}
+
+/* User menu */
+.user-menu {
+  position: relative;
+}
+
+.user-chip {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: #171a26;
+  border: 1px solid #262939;
+  padding: 6px 12px;
+  border-radius: 20px;
+  cursor: pointer;
+}
+
+.user-chip .avatar {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: #4c6ef5;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.user-chip .info {
+  line-height: 1.2;
+}
+
+.user-chip .username {
+  font-size: 13px;
+  font-weight: 600;
+  color: #fff;
+}
+
+.user-chip .role {
+  font-size: 11px;
+  color: #8a8d9c;
+}
+
+.user-chip .chevron {
+  color: #8a8d9c;
+  font-size: 10px;
+  margin-left: 4px;
+}
+
+.dropdown {
+  position: absolute;
+  top: 46px;
+  right: 0;
+  width: 190px;
+  background: #171a26;
+  border: 1px solid #262939;
+  border-radius: 10px;
+  padding: 6px;
+  display: none;
+  flex-direction: column;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+}
+
+.user-menu.open .dropdown {
+  display: flex;
+}
+
+.dropdown a {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px;
+  border-radius: 8px;
+  color: #d7d8e0;
+  font-size: 14px;
+}
+
+.dropdown a:hover {
+  background: #211f3d;
+}
+
+.dropdown a.logout {
+  color: #ff6b6b;
+}
+
+.dropdown .divider {
+  height: 1px;
+  background: #262939;
+  margin: 4px 2px;
+}
+
+/* ===== PAGE WRAPPER ===== */
+.page {
+  max-width: 780px;
+  margin: 0 auto;
+  padding: 40px 20px 70px;
+}
+
+/* ===== READ-ONLY VIEWING BANNER (when viewing someone else's portfolio) ===== */
+.viewing-banner {
+  background: #1a1730;
+  border: 1px solid #382f6b;
+  color: #b6a9ff;
+  font-size: 13px;
+  padding: 12px 18px;
+  border-radius: 10px;
+  margin-bottom: 20px;
+}
+
+.viewing-banner b {
+  color: #fff;
+}
+
+.viewing-banner a {
+  color: #fff;
+  font-weight: 600;
+  margin-left: 6px;
+}
+
+/* ===== PROFILE HEADER CARD ===== */
+.profile-card {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  background: #12141f;
+  border: 1px solid #1e2130;
+  border-radius: 14px;
+  padding: 30px;
+  margin-bottom: 24px;
+  flex-wrap: wrap;
+}
+
+.profile-identity {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.profile-avatar {
+  width: 74px;
+  height: 74px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #7c5cff, #2ee6a8);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 26px;
+  font-weight: 800;
+  color: #10121c;
+  flex-shrink: 0;
+}
+
+.profile-name {
+  font-size: 26px;
+  font-weight: 800;
+  color: #fff;
+  margin: 0 0 6px;
+}
+
+.profile-title {
+  font-size: 15px;
+  font-weight: 600;
+  color: #8b7bff;
+  margin: 0 0 6px;
+}
+
+.profile-meta {
+  font-size: 13px;
+  color: #8a8d9c;
+  margin: 0;
+}
+
+.profile-actions {
+  display: flex;
+  gap: 12px;
+}
+
+.btn {
+  padding: 11px 22px;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  border: none;
+}
+
+.btn-primary {
+  background: #7c5cff;
+  color: #fff;
+}
+
+.btn-primary:hover {
+  background: #6b4cf5;
+}
+
+.btn-outline {
+  background: transparent;
+  color: #fff;
+  border: 1px solid #383a4a;
+}
+
+.btn-outline:hover {
+  border-color: #7c5cff;
+}
+
+/* ===== SECTION CARDS ===== */
+.section-card {
+  background: #12141f;
+  border: 1px solid #1e2130;
+  border-radius: 14px;
+  padding: 26px 30px;
+  margin-bottom: 24px;
+}
+
+.section-card h2 {
+  font-size: 18px;
+  font-weight: 700;
+  margin: 0 0 14px;
+}
+
+.about-text {
+  font-size: 14px;
+  color: #9497a6;
+  line-height: 1.7;
+  margin: 0;
+}
+
+.section-card.about h2 { color: #b6a9ff; }
+.section-card.skills h2 { color: #2ee6a8; }
+.section-card.projects h2 { color: #f0c94a; }
+.section-card.certs h2 { color: #ff6b8a; }
+
+/* ===== TWO COLUMN GRID (Skills + Projects) ===== */
+.two-col {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+  margin-bottom: 24px;
+}
+
+.two-col .section-card {
+  margin-bottom: 0;
+}
+
+/* ===== SKILLS ===== */
+.skill-row {
+  margin-bottom: 16px;
+}
+
+.skill-row:last-child {
+  margin-bottom: 0;
+}
+
+.skill-top {
+  display: flex;
+  justify-content: space-between;
+  font-size: 14px;
+  font-weight: 600;
+  margin-bottom: 6px;
+}
+
+.skill-top .pct {
+  color: #a9abb8;
+  font-weight: 500;
+}
+
+.skill-bar {
+  height: 6px;
+  background: #1e2130;
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.skill-fill {
+  height: 100%;
+  border-radius: 4px;
+  background: linear-gradient(90deg, #7c5cff, #2ee6a8);
+}
+
+/* ===== PROJECTS ===== */
+.project-item {
+  border: 1px solid #1e2130;
+  border-radius: 10px;
+  padding: 16px 18px;
+  margin-bottom: 12px;
+}
+
+.project-item:last-child {
+  margin-bottom: 0;
+}
+
+.project-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  margin-bottom: 6px;
+}
+
+.project-top h3 {
+  font-size: 15px;
+  color: #fff;
+  margin: 0;
+}
+
+.status {
+  font-size: 11px;
+  font-weight: 700;
+  padding: 3px 10px;
+  border-radius: 20px;
+  white-space: nowrap;
+}
+
+.status.completed {
+  background: #10261f;
+  color: #2ee6a8;
+}
+
+.status.in-progress {
+  background: #2a2410;
+  color: #f0c94a;
+}
+
+.project-item p {
+  font-size: 13px;
+  color: #9497a6;
+  margin: 0 0 8px;
+  line-height: 1.5;
+}
+
+.project-stack {
+  font-size: 12px;
+  color: #b6a9ff;
+  font-family: 'Consolas', monospace;
+}
+
+/* ===== CERTIFICATIONS ===== */
+.cert-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: #171a26;
+  border: 1px solid #262939;
+  border-radius: 10px;
+  padding: 16px 18px;
+  margin-bottom: 12px;
+  font-size: 14px;
+  font-weight: 600;
+  color: #e6e6ea;
+}
+
+.cert-item:last-child {
+  margin-bottom: 0;
+}
+
+.cert-item .icon {
+  font-size: 18px;
+}
+
+/* ===== FOOTER ===== */
+footer {
+  background: #0b0d14;
+  border-top: 1px solid #1e2130;
+  padding: 60px 40px 30px;
+}
+
+.footer-grid {
+  max-width: 1000px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  gap: 40px;
+  flex-wrap: wrap;
+}
+
+.footer-brand .logo {
+  margin-bottom: 14px;
+}
+
+.footer-brand p {
+  color: #8a8d9c;
+  font-size: 14px;
+  line-height: 1.6;
+  max-width: 280px;
+}
+
+.footer-col h4 {
+  color: #7c5cff;
+  font-size: 12px;
+  letter-spacing: 1.5px;
+  margin: 0 0 16px;
+}
+
+.footer-col a {
+  display: block;
+  color: #a9abb8;
+  font-size: 14px;
+  margin-bottom: 12px;
+}
+
+.footer-col a.highlight {
+  color: #b6a9ff;
+  font-weight: 600;
+}
+
+.footer-bottom {
+  text-align: center;
+  color: #64667a;
+  font-size: 13px;
+  margin-top: 50px;
+  padding-top: 24px;
+  border-top: 1px solid #1e2130;
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 800px) {
+  header {
+    flex-wrap: wrap;
+    gap: 14px;
+    padding: 14px 20px;
+  }
+
+  nav {
+    order: 3;
+    width: 100%;
+    justify-content: center;
+    gap: 16px;
+    flex-wrap: wrap;
+  }
+
+  .two-col {
+    grid-template-columns: 1fr;
+  }
+
+  .profile-card {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .footer-grid {
+    flex-direction: column;
+  }
+}
+
+/* ===== EDIT MODE ===== */
+.hidden {
+  display: none !important;
+}
+
+.profile-identity-text {
+  min-width: 220px;
+}
+
+.profile-title-input,
+.about-input {
+  width: 100%;
+  background: #171a26;
+  border: 1px solid #262939;
+  border-radius: 8px;
+  padding: 10px 12px;
+  color: #e6e6ea;
+  font-size: 14px;
+  font-family: inherit;
+}
+
+.profile-title-input {
+  max-width: 340px;
+  margin-bottom: 6px;
+  font-weight: 600;
+  color: #8b7bff;
+}
+
+.about-input {
+  resize: vertical;
+  line-height: 1.6;
+}
+
+.profile-title-input:focus,
+.about-input:focus,
+.mini-input:focus,
+.mini-select:focus,
+.mini-textarea:focus {
+  outline: none;
+  border-color: #7c5cff;
+}
+
+/* Small inline inputs used inside skill/cert/project edit rows */
+.mini-input,
+.mini-select,
+.mini-textarea {
+  background: #171a26;
+  border: 1px solid #262939;
+  border-radius: 7px;
+  padding: 8px 10px;
+  color: #e6e6ea;
+  font-size: 13px;
+  font-family: inherit;
+  width: 100%;
+}
+
+.mini-textarea {
+  resize: vertical;
+  line-height: 1.5;
+}
+
+.add-btn {
+  display: block;
+  width: 100%;
+  margin-top: 12px;
+  padding: 10px;
+  background: transparent;
+  border: 1px dashed #383a4a;
+  border-radius: 8px;
+  color: #b6a9ff;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.add-btn:hover {
+  border-color: #7c5cff;
+  background: #171a26;
+}
+
+.remove-btn {
+  background: transparent;
+  border: none;
+  color: #ff6b8a;
+  font-size: 13px;
+  cursor: pointer;
+  padding: 4px 8px;
+  flex-shrink: 0;
+}
+
+.remove-btn:hover {
+  text-decoration: underline;
+}
+
+/* Skill row in edit mode */
+.skill-edit-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 12px;
+}
+
+.skill-edit-row .mini-input.skill-name {
+  flex: 2;
+}
+
+.skill-edit-row .mini-input.skill-pct {
+  flex: 0 0 70px;
+  text-align: center;
+}
+
+/* Certification row in edit mode */
+.cert-edit-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 12px;
+}
+
+.cert-edit-row .mini-input {
+  flex: 1;
+}
+
+/* Project card in edit mode */
+.project-edit-card {
+  border: 1px solid #1e2130;
+  border-radius: 10px;
+  padding: 14px 16px;
+  margin-bottom: 12px;
+}
+
+.project-edit-card .row-top {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 8px;
+}
+
+.project-edit-card .row-top .mini-input {
+  flex: 1;
+}
+
+.project-edit-card .mini-select {
+  flex: 0 0 130px;
+}
+
+.project-edit-card .mini-textarea {
+  margin-bottom: 8px;
+}
+
+.empty-hint {
+  font-size: 13px;
+  color: #64667a;
+  font-style: italic;
+}

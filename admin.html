@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>StudentHub - Admin Dashboard</title>
+<link rel="stylesheet" href="admin.css">
+</head>
+<body>
+
+  <div class="admin-shell">
+
+    <!-- ===== SIDEBAR ===== -->
+    <aside class="sidebar">
+      <div class="sidebar-brand">
+        <div class="logo-icon">🛡️</div>
+        <div class="brand-text">
+          <div class="brand-name">StudentHub</div>
+          <div class="brand-tag">Admin Portal</div>
+        </div>
+      </div>
+
+      <nav class="sidebar-nav">
+        <button class="nav-item active" data-view="overview"><span class="nav-icon">📊</span> Overview</button>
+        <button class="nav-item" data-view="students"><span class="nav-icon">🎓</span> Students <span class="nav-count" id="countStudents">0</span></button>
+        <button class="nav-item" data-view="projects"><span class="nav-icon">🔬</span> Projects <span class="nav-count" id="countProjects">0</span></button>
+        <button class="nav-item" data-view="gigs"><span class="nav-icon">💼</span> Gigs <span class="nav-count" id="countGigs">0</span></button>
+        <button class="nav-item" data-view="portfolios"><span class="nav-icon">🎨</span> User Profiles <span class="nav-count" id="countPortfolios">0</span></button>
+        <button class="nav-item" data-view="messages"><span class="nav-icon">💬</span> Support Inbox <span class="nav-count" id="countMessages">0</span></button>
+        <button class="nav-item" data-view="settings"><span class="nav-icon">⚙️</span> Settings</button>
+      </nav>
+
+      <div class="sidebar-footer">
+        <a href="../home.html" target="_blank" class="view-site-link">🌐 View Live Site</a>
+      </div>
+    </aside>
+
+    <!-- ===== MAIN ===== -->
+    <div class="main-area">
+
+      <header class="topbar">
+        <div class="topbar-title" id="topbarTitle">Overview</div>
+        <div class="admin-account">
+          <div class="admin-avatar" id="adminAvatar">A</div>
+          <div class="admin-account-info">
+            <div class="admin-email" id="adminEmailLabel">admin@studenthub.com</div>
+            <div class="admin-role">Site Owner</div>
+          </div>
+          <button class="logout-btn" id="logoutBtn">Log Out</button>
+        </div>
+      </header>
+
+      <main class="content">
+
+        <!-- ===== OVERVIEW ===== -->
+        <section class="view active" id="view-overview">
+          <div class="stat-grid">
+            <div class="stat-card">
+              <div class="stat-icon purple">🎓</div>
+              <div class="stat-num" id="statTotalStudents">0</div>
+              <div class="stat-label">Total Students</div>
+            </div>
+            <div class="stat-card">
+              <div class="stat-icon green">🔬</div>
+              <div class="stat-num" id="statTotalProjects">0</div>
+              <div class="stat-label">Active Projects</div>
+            </div>
+            <div class="stat-card">
+              <div class="stat-icon yellow">💼</div>
+              <div class="stat-num" id="statTotalGigs">0</div>
+              <div class="stat-label">Gigs Posted</div>
+            </div>
+            <div class="stat-card">
+              <div class="stat-icon pink">💬</div>
+              <div class="stat-num" id="statTotalMessages">0</div>
+              <div class="stat-label">Support Conversations</div>
+            </div>
+          </div>
+
+          <div class="panel-grid">
+            <div class="panel">
+              <div class="panel-header">
+                <h3>Recently Registered Students</h3>
+                <button class="link-btn" data-goto="students">View all →</button>
+              </div>
+              <div class="panel-body" id="recentStudentsList"></div>
+            </div>
+            <div class="panel">
+              <div class="panel-header">
+                <h3>Latest Gigs</h3>
+                <button class="link-btn" data-goto="gigs">View all →</button>
+              </div>
+              <div class="panel-body" id="recentGigsList"></div>
+            </div>
+          </div>
+        </section>
+
+        <!-- ===== STUDENTS ===== -->
+        <section class="view" id="view-students">
+          <div class="toolbar">
+            <input type="text" id="studentSearch" class="search-input" placeholder="🔍 Search students by name, email or role…">
+          </div>
+          <div class="table-wrapper">
+            <table class="data-table">
+              <thead>
+                <tr>
+                  <th>Name</th>
+                  <th>Email</th>
+                  <th>Role</th>
+                  <th>Account Type</th>
+                  <th class="actions-col">Actions</th>
+                </tr>
+              </thead>
+              <tbody id="studentsTableBody"></tbody>
+            </table>
+            <div class="empty-state" id="studentsEmptyState" style="display:none;">No students found.</div>
+          </div>
+        </section>
+
+        <!-- ===== PROJECTS ===== -->
+        <section class="view" id="view-projects">
+          <div class="toolbar">
+            <input type="text" id="projectSearch" class="search-input" placeholder="🔍 Search projects by title or category…">
+            <button class="btn-primary" id="addProjectBtn">+ Add Project</button>
+          </div>
+          <div class="card-grid" id="projectsGrid"></div>
+          <div class="empty-state" id="projectsEmptyState" style="display:none;">No projects yet.</div>
+        </section>
+
+        <!-- ===== GIGS ===== -->
+        <section class="view" id="view-gigs">
+          <div class="toolbar">
+            <input type="text" id="gigSearch" class="search-input" placeholder="🔍 Search gigs by title, category or poster…">
+            <button class="btn-primary" id="addGigBtn">+ Add Gig</button>
+          </div>
+          <div class="table-wrapper">
+            <table class="data-table">
+              <thead>
+                <tr>
+                  <th>Title</th>
+                  <th>Category</th>
+                  <th>Price</th>
+                  <th>Posted By</th>
+                  <th>Urgent</th>
+                  <th class="actions-col">Actions</th>
+                </tr>
+              </thead>
+              <tbody id="gigsTableBody"></tbody>
+            </table>
+            <div class="empty-state" id="gigsEmptyState" style="display:none;">No gigs yet.</div>
+          </div>
+        </section>
+
+        <!-- ===== PORTFOLIOS ===== -->
+        <section class="view" id="view-portfolios">
+          <div class="toolbar">
+            <input type="text" id="portfolioSearch" class="search-input" placeholder="🔍 Search all user profiles by name, email or title…">
+          </div>
+          <div class="card-grid" id="portfoliosGrid"></div>
+          <div class="empty-state" id="portfoliosEmptyState" style="display:none;">No portfolios yet.</div>
+        </section>
+
+        <!-- ===== MESSAGES / SUPPORT INBOX ===== -->
+        <section class="view" id="view-messages">
+          <div class="inbox-layout">
+            <div class="inbox-list" id="inboxList">
+              <div class="empty-state" id="inboxEmptyState" style="display:none;">No support conversations yet.</div>
+            </div>
+            <div class="inbox-thread" id="inboxThread">
+              <div class="inbox-placeholder">Select a conversation to view messages.</div>
+            </div>
+          </div>
+        </section>
+
+        <!-- ===== SETTINGS ===== -->
+        <section class="view" id="view-settings">
+          <div class="settings-grid">
+            <div class="panel">
+              <div class="panel-header"><h3>Admin Account</h3></div>
+              <div class="panel-body">
+                <form id="adminSettingsForm" class="settings-form">
+                  <div class="form-message" id="settingsMessage"></div>
+                  <div class="field">
+                    <label>Admin Email</label>
+                    <input type="email" id="settingsEmail">
+                  </div>
+                  <div class="field">
+                    <label>Current Password</label>
+                    <input type="password" id="settingsCurrentPassword" placeholder="Required to save changes">
+                  </div>
+                  <div class="field">
+                    <label>New Password <span class="optional-tag">(leave blank to keep current)</span></label>
+                    <input type="password" id="settingsNewPassword" placeholder="At least 6 characters">
+                  </div>
+                  <button type="submit" class="btn-primary">Save Changes</button>
+                </form>
+              </div>
+            </div>
+
+            <div class="panel danger-panel">
+              <div class="panel-header"><h3>Danger Zone</h3></div>
+              <div class="panel-body">
+                <p class="danger-text">These actions affect data for every student on this browser. They cannot be undone.</p>
+                <button class="btn-danger" id="resetDataBtn">Reset All Site Data (Students, Projects, Gigs)</button>
+              </div>
+            </div>
+          </div>
+        </section>
+
+      </main>
+    </div>
+  </div>
+
+  <!-- ===== GENERIC MODAL ===== -->
+  <div class="modal-overlay" id="modalOverlay">
+    <div class="modal">
+      <div class="modal-header">
+        <h3 id="modalTitle">Edit</h3>
+        <button class="modal-close" id="modalClose">✕</button>
+      </div>
+      <div class="modal-body" id="modalBody"></div>
+    </div>
+  </div>
+
+  <div class="toast" id="toast"></div>
+
+  <script src="admin.js"></script>
+</body>
+</html>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>StudentHub - Admin Portal</title>
+<link rel="stylesheet" href="admin-login.css">
+</head>
+<body>
+
+  <div class="admin-page">
+    <div class="admin-brand">
+      <div class="logo-icon">🛡️</div>
+      <h1>StudentHub <span class="accent">Admin</span></h1>
+      <p>Site administration — authorized personnel only</p>
+    </div>
+
+    <div class="admin-card">
+      <div class="form-message" id="formMessage"></div>
+
+      <form id="adminLoginForm">
+        <div class="field" id="emailField">
+          <label for="emailInput">Admin Email</label>
+          <input type="email" id="emailInput" placeholder="admin@studenthub.com" autocomplete="username">
+          <div class="field-error">Please enter a valid email address.</div>
+        </div>
+
+        <div class="field" id="passwordField">
+          <label for="passwordInput">Admin Password</label>
+          <input type="password" id="passwordInput" placeholder="••••••••" autocomplete="current-password">
+          <div class="field-error">Please enter the admin password.</div>
+        </div>
+
+        <button type="submit" class="btn-submit">Sign In to Admin Portal →</button>
+      </form>
+
+      <div class="demo-box">
+        <div class="demo-label">Demo admin credentials</div>
+        <div class="demo-value">admin@studenthub.com / Admin@2026</div>
+      </div>
+    </div>
+
+    <div class="back-link">
+      Not an admin? <a href="../login.html">← Back to student login</a>
+    </div>
+
+    <p class="security-note">
+      This is a front-end demo: the admin password is checked in the browser, not on a
+      real server. Do not reuse this pattern for a production admin panel — a real
+      deployment must verify admin credentials server-side.
+    </p>
+  </div>
+
+  <script src="admin-login.js"></script>
+</body>
+</html>

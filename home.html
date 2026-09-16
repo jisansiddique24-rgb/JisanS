@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>StudentHub - Home</title>
+<link rel="stylesheet" href="home.css">
+</head>
+<body>
+
+  <header>
+    <a class="logo" href="home.html">
+      <div class="logo-icon">SH</div>
+      <span class="logo-text">Student<span class="hub">Hub</span></span>
+    </a>
+
+    <nav>
+      <a href="home.html" class="active">Home</a>
+      <a href="gigs.html">Gigs</a>
+      <a href="projects.html">Projects</a>
+      <a href="portfolio.html">Portfolio</a>
+      <a href="team.html">Team</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+
+    <div class="user-menu" id="userMenu">
+      <div class="user-chip" id="userChip">
+        <div class="avatar" id="headerAvatar">--</div>
+        <div class="info">
+          <div class="username" id="headerUsername">Loading…</div>
+          <div class="role" id="headerRole"></div>
+        </div>
+        <span class="chevron">▾</span>
+      </div>
+      <div class="dropdown">
+        <a href="portfolio.html">👤 My Profile</a>
+        <a href="gigs.html#post-gig">💼 Post a Gig</a>
+        <div class="divider"></div>
+        <a href="#" class="logout" id="headerLogout">🚪 Log Out</a>
+      </div>
+    </div>
+  </header>
+
+  <section class="hero">
+    <div class="badge">🚀 Now live at United International University</div>
+    <h1>
+      Find Projects, <span class="purple">Build</span><br>
+      <span class="blue">Teams</span>,<br>
+      Showcase Skills
+    </h1>
+    <p>The campus platform where students find freelance work, collaborate on research, and build a portfolio that opens doors.</p>
+    <div class="hero-buttons">
+      <a class="btn btn-primary" href="gigs.html#post-gig">Post a Gig</a>
+      <a class="btn btn-outline" href="gigs.html">Find Collaborators</a>
+    </div>
+  </section>
+
+  <section class="stats">
+    <div class="stat">
+      <div class="num" id="statStudents">0</div>
+      <div class="label">Active Students</div>
+    </div>
+    <div class="stat">
+      <div class="num" id="statGigs">0</div>
+      <div class="label">Gigs Posted</div>
+    </div>
+    <div class="stat">
+      <div class="num" id="statTeams">0</div>
+      <div class="label">Teams Formed</div>
+    </div>
+    <div class="stat">
+      <div class="num">UIU</div>
+      <div class="label">University</div>
+    </div>
+  </section>
+
+  <section class="features">
+    <div class="eyebrow">WHAT YOU CAN DO</div>
+    <h2>Everything students need</h2>
+    <div class="feature-grid">
+      <div class="feature-card">
+        <div class="feature-icon">💼</div>
+        <h3>Freelance Gigs</h3>
+        <p>Post or find paid student freelance opportunities — web dev, app dev, design, data entry, and more.</p>
+        <a href="gigs.html" class="explore purple">Explore →</a>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">🔬</div>
+        <h3>Research Projects</h3>
+        <p>Find teammates for academic and personal projects. Build your dream team from the campus.</p>
+        <a href="projects.html" class="explore green">Explore →</a>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">🎨</div>
+        <h3>Portfolio Showcase</h3>
+        <p>Display your skills, completed work, and certifications to potential collaborators.</p>
+        <a href="portfolio.html" class="explore yellow">Explore →</a>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">👥</div>
+        <h3>Team Formation</h3>
+        <p>Assemble cross-disciplinary teams with the exact skill mix your project needs.</p>
+        <a href="team.html" class="explore pink">Explore →</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="gigs-section">
+    <div class="gigs-header">
+      <h2>Latest Gigs</h2>
+      <a href="gigs.html" class="view-all">View all →</a>
+    </div>
+    <div class="gig-list" id="gigList"></div>
+  </section>
+
+  <footer>
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a class="logo" href="home.html">
+          <div class="logo-icon">SH</div>
+          <span class="logo-text">Student<span class="hub">Hub</span></span>
+        </a>
+        <p>The campus platform connecting students for freelance work, research collaboration, and portfolio building.</p>
+      </div>
+      <div class="footer-col">
+        <h4>PLATFORM</h4>
+        <a href="gigs.html">Gigs</a>
+        <a href="projects.html">Projects</a>
+        <a href="portfolio.html">Portfolio</a>
+        <a href="team.html">Team</a>
+      </div>
+      <div class="footer-col">
+        <h4>CONTACT</h4>
+        <a href="#">UIU, Dhaka</a>
+        <a href="#">studenthub@uiu.ac.bd</a>
+        <a href="contact.html" class="highlight">Send a message →</a>
+      </div>
+    </div>
+    <div class="footer-bottom">© 2025 StudentHub · Built for UIU students</div>
+  </footer>
+  <script src="home.js"></script>
+</body>
+</html>

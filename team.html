@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>StudentHub - My Team</title>
+<link rel="stylesheet" href="team.css">
+</head>
+<body>
+
+  <header>
+    <a class="logo" href="home.html">
+      <div class="logo-icon">SH</div>
+      <span class="logo-text">Student<span class="hub">Hub</span></span>
+    </a>
+
+    <nav>
+      <a href="home.html">Home</a>
+      <a href="gigs.html">Gigs</a>
+      <a href="projects.html">Projects</a>
+      <a href="portfolio.html">Portfolio</a>
+      <a href="team.html" class="active">Team</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+
+    <div class="user-menu" id="userMenu">
+      <div class="user-chip" id="userChip">
+        <div class="avatar" id="headerAvatar">--</div>
+        <div class="info">
+          <div class="username" id="headerUsername">Loading…</div>
+          <div class="role" id="headerRole"></div>
+        </div>
+        <span class="chevron">▾</span>
+      </div>
+      <div class="dropdown">
+        <a href="portfolio.html">👤 My Profile</a>
+        <a href="gigs.html#post-gig">💼 Post a Gig</a>
+        <div class="divider"></div>
+        <a href="#" class="logout" id="headerLogout">🚪 Log Out</a>
+      </div>
+    </div>
+  </header>
+
+  <div class="page">
+    <div class="eyebrow">MY TEAMS</div>
+    <h1>Your Projects</h1>
+    <p class="page-subtitle" id="teamSubtitle">Loading your teams…</p>
+
+    <div id="teamList"></div>
+  </div>
+
+  <footer>
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a class="logo" href="home.html">
+          <div class="logo-icon">SH</div>
+          <span class="logo-text">Student<span class="hub">Hub</span></span>
+        </a>
+        <p>The campus platform connecting students for freelance work, research collaboration, and portfolio building.</p>
+      </div>
+      <div class="footer-col">
+        <h4>PLATFORM</h4>
+        <a href="gigs.html">Gigs</a>
+        <a href="projects.html">Projects</a>
+        <a href="portfolio.html">Portfolio</a>
+        <a href="team.html">Team</a>
+      </div>
+      <div class="footer-col">
+        <h4>CONTACT</h4>
+        <a href="#">UIU, Dhaka</a>
+        <a href="#">studenthub@uiu.ac.bd</a>
+        <a href="contact.html" class="highlight">Send a message →</a>
+      </div>
+    </div>
+    <div class="footer-bottom">© 2025 StudentHub · Built for UIU students</div>
+  </footer>
+
+  <script src="team.js"></script>
+</body>
+</html>

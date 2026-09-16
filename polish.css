@@ -1,0 +1,159 @@
+/* =====================================================================
+   StudentHub — Shared Visual Polish Layer
+   =====================================================================
+   Loaded AFTER each page's own stylesheet, on every page. This upgrades
+   typography, depth, motion, and accessibility site-wide without
+   touching any page's structural CSS or the IDs/classes its JS depends
+   on — it only refines how existing elements look.
+   ===================================================================== */
+
+/* ----- Type: two deliberate families, not the OS default stack ----- */
+/* Space Grotesk: geometric, confident — for headings, brand, numbers,
+   anything that should feel like a builder's tool. Inter: for body
+   copy and UI text, where clarity matters more than character. */
+:root {
+  --font-display: 'Space Grotesk', 'Segoe UI', Arial, sans-serif;
+  --font-body: 'Inter', 'Segoe UI', Arial, sans-serif;
+  --accent-violet: #7c5cff;
+  --accent-mint: #2ee6a8;
+  --accent-glow: rgba(124, 92, 255, 0.35);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-body);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+h1, h2, h3,
+.logo, .logo-text,
+.btn, .btn-primary, .btn-outline, .btn-submit,
+.post-gig-btn, .join-btn, .apply-btn, .support-btn, .contact-btn,
+nav a.active,
+.stat .num, .num,
+.profile-name, .team-card-header h2,
+.hero h1, .page-top h1, .projects-title-row h1, .page h1 {
+  font-family: var(--font-display);
+  letter-spacing: -0.01em;
+}
+
+/* ----- Selection & focus: small details a professional build gets right ----- */
+::selection {
+  background: var(--accent-violet);
+  color: #fff;
+}
+
+a, button, input, select, textarea, .join-btn, .apply-btn, .details-btn {
+  transition: background-color 0.18s ease, border-color 0.18s ease,
+              color 0.18s ease, transform 0.18s ease, box-shadow 0.18s ease;
+}
+
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible,
+.member-card:focus-visible {
+  outline: 2px solid var(--accent-mint);
+  outline-offset: 2px;
+}
+
+/* ----- Scrollbar: matches the dark theme instead of the OS default ----- */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #262939;
+  border-radius: 20px;
+  border: 2px solid transparent;
+  background-clip: padding-box;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #383a52;
+  background-clip: padding-box;
+}
+
+/* ----- Primary buttons: subtle gradient + lift instead of flat fill ----- */
+.btn-primary, .btn-submit, .post-gig-btn, .post-project-btn,
+button[type="submit"].btn {
+  background: linear-gradient(135deg, #8a6bff, #6c47f0);
+  box-shadow: 0 1px 0 rgba(255,255,255,0.12) inset, 0 8px 20px -6px var(--accent-glow);
+}
+
+.btn-primary:hover, .btn-submit:hover, .post-gig-btn:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 1px 0 rgba(255,255,255,0.14) inset, 0 12px 28px -6px var(--accent-glow);
+}
+
+.btn-primary:active, .btn-submit:active {
+  transform: translateY(0);
+}
+
+/* The admin area is a deliberately distinct amber/red accent (signaling
+   "different, higher-privilege area") — don't let the student-side
+   violet button treatment above bleed into it. */
+.admin-page .btn-submit {
+  background: linear-gradient(135deg, #f0943a, #c9432e);
+  box-shadow: none;
+}
+
+.admin-page .btn-submit:hover {
+  transform: none;
+  filter: brightness(1.08);
+  box-shadow: none;
+}
+
+/* ----- Cards: one consistent hover language, reused everywhere -----
+   A single deliberate interaction (gentle lift + brighter border + soft
+   shadow bloom) applied to every card-like surface across the site,
+   rather than a different effect per page. */
+.feature-card, .gig-item, .gig-card, .project-card, .team-card,
+.member-card, .section-card, .cert-item, .stat, .project-item,
+.demo-box, .cert-item, .info-row {
+  transition: transform 0.18s ease, border-color 0.18s ease, box-shadow 0.18s ease;
+}
+
+.feature-card:hover, .gig-item:hover, .gig-card:hover, .project-card:hover,
+.team-card:hover, .member-card:hover, .project-item:hover {
+  transform: translateY(-3px);
+  border-color: #3a3568;
+  box-shadow: 0 16px 40px -12px rgba(0,0,0,0.55);
+}
+
+/* ----- Inputs: a touch more depth on focus ----- */
+input, select, textarea {
+  font-family: var(--font-body);
+}
+
+input:focus, select:focus, textarea:focus {
+  box-shadow: 0 0 0 3px rgba(124, 92, 255, 0.15);
+}
+
+/* ----- Badges & pills: a faint inner highlight for a "glassy" feel ----- */
+.tag, .badge, .role-chip, .skill-chip, .status, .pill, .filter-pill,
+.member-role-badge, .capacity-badge, .team-progress {
+  box-shadow: 0 1px 0 rgba(255,255,255,0.05) inset;
+}
+
+/* ----- Respect reduced-motion preferences ----- */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *, *::before, *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
+}

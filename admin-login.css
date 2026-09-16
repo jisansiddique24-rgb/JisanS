@@ -1,0 +1,205 @@
+/* ===== RESET & BASE ===== */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background: #0a0a0d;
+  font-family: 'Segoe UI', Arial, sans-serif;
+  color: #e6e6ea;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 60px 20px;
+}
+
+a {
+  text-decoration: none;
+}
+
+/* ===== PAGE GLOW (amber/red instead of the student purple, to signal "different area") ===== */
+.admin-page {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: radial-gradient(ellipse 600px 400px at 50% 0%, rgba(240,148,54,0.14), transparent 70%);
+}
+
+/* ===== BRAND HEADER ===== */
+.admin-brand {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.admin-brand .logo-icon {
+  width: 54px;
+  height: 54px;
+  border-radius: 12px;
+  background: linear-gradient(135deg, #f0943a, #c9432e);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+  margin: 0 auto 20px;
+}
+
+.admin-brand h1 {
+  font-size: 24px;
+  font-weight: 700;
+  color: #fff;
+  margin: 0 0 8px;
+}
+
+.admin-brand h1 .accent {
+  color: #f0943a;
+}
+
+.admin-brand p {
+  font-size: 13px;
+  color: #8a8d9c;
+  margin: 0;
+}
+
+/* ===== CARD ===== */
+.admin-card {
+  width: 100%;
+  max-width: 400px;
+  background: #131316;
+  border: 1px solid #232326;
+  border-radius: 16px;
+  padding: 40px;
+  box-shadow: 0 25px 60px rgba(0,0,0,0.5);
+}
+
+.field {
+  margin-bottom: 20px;
+}
+
+.field label {
+  display: block;
+  font-size: 13px;
+  color: #e0a878;
+  margin-bottom: 8px;
+}
+
+.field input {
+  width: 100%;
+  background: #1c1c20;
+  border: 1px solid #2c2c30;
+  border-radius: 9px;
+  padding: 13px 15px;
+  color: #e6e6ea;
+  font-size: 14px;
+  font-family: inherit;
+}
+
+.field input::placeholder {
+  color: #565a6e;
+}
+
+.field input:focus {
+  outline: none;
+  border-color: #f0943a;
+}
+
+.field-error {
+  display: none;
+  color: #ff6b6b;
+  font-size: 12px;
+  margin-top: 6px;
+}
+
+.field.invalid input {
+  border-color: #ff6b6b;
+}
+
+.field.invalid .field-error {
+  display: block;
+}
+
+.btn-submit {
+  width: 100%;
+  background: linear-gradient(135deg, #f0943a, #c9432e);
+  color: #fff;
+  border: none;
+  border-radius: 9px;
+  padding: 15px;
+  font-size: 15px;
+  font-weight: 700;
+  cursor: pointer;
+  margin-top: 6px;
+}
+
+.btn-submit:hover {
+  filter: brightness(1.08);
+}
+
+.form-message {
+  display: none;
+  text-align: center;
+  font-size: 13px;
+  padding: 10px;
+  border-radius: 8px;
+  margin-bottom: 18px;
+}
+
+.form-message.show {
+  display: block;
+}
+
+.form-message.error {
+  background: #2a1414;
+  color: #ff6b6b;
+  border: 1px solid #4a1f1f;
+}
+
+.form-message.success {
+  background: #1c2410;
+  color: #c9e64a;
+  border: 1px solid #35441c;
+}
+
+.demo-box {
+  text-align: center;
+  margin-top: 22px;
+  padding: 12px;
+  background: #1c1c20;
+  border: 1px solid #2c2c30;
+  border-radius: 8px;
+}
+
+.demo-box .demo-label {
+  font-size: 12px;
+  color: #8a8d9c;
+  margin-bottom: 6px;
+}
+
+.demo-box .demo-value {
+  font-size: 13px;
+  color: #e0a878;
+  font-family: 'Consolas', monospace;
+}
+
+.back-link {
+  text-align: center;
+  margin-top: 24px;
+  font-size: 13px;
+  color: #8a8d9c;
+}
+
+.back-link a {
+  color: #e0a878;
+  font-weight: 600;
+}
+
+.security-note {
+  max-width: 400px;
+  margin-top: 20px;
+  font-size: 11px;
+  color: #55575f;
+  text-align: center;
+  line-height: 1.6;
+}

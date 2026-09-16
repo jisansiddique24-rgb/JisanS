@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>StudentHub - Register</title>
+<link rel="stylesheet" href="register.css">
+
+</head>
+<body>
+
+  <div class="auth-page">
+    <div class="auth-brand">
+      <div class="logo-icon">SH</div>
+      <h1>Welcome to <span class="hub">StudentHub</span></h1>
+      <p>Connect. Collaborate. Create.</p>
+    </div>
+
+    <div class="auth-card">
+      <div class="auth-tabs">
+        <a href="login.html">Sign In</a>
+        <a href="register.html" class="active">Register</a>
+      </div>
+
+      <form class="auth-form" id="registerForm">
+        <div class="form-message" id="formMessage"></div>
+
+        <div class="field" id="nameField">
+          <label for="nameInput">Full Name</label>
+          <input type="text" id="nameInput" placeholder="Enter Full Name" autocomplete="name">
+          <div class="field-error">Please enter your full name.</div>
+        </div>
+
+        <div class="field" id="emailField">
+          <label for="emailInput">University Email</label>
+          <input type="email" id="emailInput" placeholder="you@uiu.ac.bd" autocomplete="email">
+          <div class="field-error">Please enter a valid email address.</div>
+        </div>
+
+        <div class="field" id="passwordField">
+          <label for="passwordInput">Password</label>
+          <input type="password" id="passwordInput" placeholder="At least 6 characters" autocomplete="new-password">
+          <div class="field-error">Password must be at least 6 characters.</div>
+        </div>
+
+        <div class="field" id="roleField">
+          <label for="roleInput">Your Role</label>
+          <select id="roleInput">
+            <option value="" disabled selected>Select your role</option>
+            <option value="Developer">Developer</option>
+            <option value="Designer">Designer</option>
+            <option value="Researcher">Researcher</option>
+            <option value="Other">Other</option>
+          </select>
+          <div class="field-error">Please select your role.</div>
+        </div>
+
+        <button type="submit" class="btn-submit">Create Account →</button>
+      </form>
+    </div>
+
+    <div class="auth-footer-link">
+      Already have an account? <a href="login.html">Sign in</a>
+    </div>
+  </div>
+  <script src="register.js"></script>
+</body>
+</html>

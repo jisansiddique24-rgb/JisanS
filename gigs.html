@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>StudentHub - Gigs</title>
+<link rel="stylesheet" href="gigs.css">
+</head>
+<body>
+
+  <header>
+    <a class="logo" href="home.html">
+      <div class="logo-icon">SH</div>
+      <span class="logo-text">Student<span class="hub">Hub</span></span>
+    </a>
+
+    <nav>
+      <a href="home.html">Home</a>
+      <a href="gigs.html" class="active">Gigs</a>
+      <a href="projects.html">Projects</a>
+      <a href="portfolio.html">Portfolio</a>
+      <a href="team.html">Team</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+
+    <div class="user-menu" id="userMenu">
+      <div class="user-chip" id="userChip">
+        <div class="avatar" id="headerAvatar">--</div>
+        <div class="info">
+          <div class="username" id="headerUsername">Loading…</div>
+          <div class="role" id="headerRole"></div>
+        </div>
+        <span class="chevron">▾</span>
+      </div>
+      <div class="dropdown">
+        <a href="portfolio.html">👤 My Profile</a>
+        <a href="gigs.html#post-gig" id="dropdownPostGig">💼 Post a Gig</a>
+        <div class="divider"></div>
+        <a href="#" class="logout" id="headerLogout">🚪 Log Out</a>
+      </div>
+    </div>
+  </header>
+
+  <div class="page">
+    <div class="eyebrow">FREELANCE MARKETPLACE</div>
+
+    <div class="gigs-title-row">
+      <h1>Available Gigs</h1>
+      <button class="btn btn-primary" id="postGigBtn">+ Post a Gig</button>
+    </div>
+
+    <p class="gigs-subtitle" id="gigsSubtitle">Loading opportunities…</p>
+
+    <div class="filter-pills" id="filterPills">
+      <button class="pill active" data-category="All" type="button">All</button>
+      <button class="pill" data-category="Web Dev" type="button">Web Dev</button>
+      <button class="pill" data-category="Design" type="button">Design</button>
+      <button class="pill" data-category="Research" type="button">Research</button>
+      <button class="pill" data-category="Writing" type="button">Writing</button>
+      <button class="pill" data-category="Data" type="button">Data</button>
+    </div>
+
+    <div class="gigs-grid" id="gigsGrid"></div>
+  </div>
+
+  <!-- ===== POST A GIG MODAL ===== -->
+  <div class="modal-overlay hidden" id="postGigOverlay">
+    <div class="modal-panel">
+      <div class="modal-header">
+        <h2>Post a Gig</h2>
+        <button class="modal-close" id="modalCloseBtn" type="button">✕</button>
+      </div>
+
+      <form id="postGigForm">
+        <div class="field" id="titleField">
+          <label for="titleInput">Gig Title</label>
+          <input type="text" id="titleInput" placeholder="e.g. React Frontend Developer">
+          <div class="field-error">Please enter a title.</div>
+        </div>
+
+        <div class="field-row">
+          <div class="field" id="categoryField">
+            <label for="categoryInput">Category</label>
+            <select id="categoryInput">
+              <option value="" disabled selected>Select category</option>
+              <option value="Web Dev">Web Dev</option>
+              <option value="Design">Design</option>
+              <option value="Research">Research</option>
+              <option value="Writing">Writing</option>
+              <option value="Data">Data</option>
+            </select>
+            <div class="field-error">Please select a category.</div>
+          </div>
+
+          <div class="field" id="priceField">
+            <label for="priceInput">Price ($)</label>
+            <input type="number" id="priceInput" min="0" placeholder="e.g. 120">
+            <div class="field-error">Please enter a valid price.</div>
+          </div>
+        </div>
+
+        <div class="field" id="descField">
+          <label for="descInput">Description</label>
+          <textarea id="descInput" rows="3" placeholder="What needs to be done?"></textarea>
+          <div class="field-error">Please enter a description.</div>
+        </div>
+
+        <div class="field" id="tagsField">
+          <label for="tagsInput">Skills / Tags</label>
+          <input type="text" id="tagsInput" placeholder="e.g. React, TypeScript, Tailwind">
+          <div class="field-hint">Separate with commas.</div>
+        </div>
+
+        <div class="checkbox-row">
+          <input type="checkbox" id="urgentInput">
+          <label for="urgentInput">Mark as Urgent</label>
+        </div>
+
+        <div class="modal-actions">
+          <button type="button" class="btn btn-outline" id="modalCancelBtn">Cancel</button>
+          <button type="submit" class="btn btn-primary">Post Gig →</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <footer>
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a class="logo" href="home.html">
+          <div class="logo-icon">SH</div>
+          <span class="logo-text">Student<span class="hub">Hub</span></span>
+        </a>
+        <p>The campus platform connecting students for freelance work, research collaboration, and portfolio building.</p>
+      </div>
+      <div class="footer-col">
+        <h4>PLATFORM</h4>
+        <a href="gigs.html">Gigs</a>
+        <a href="projects.html">Projects</a>
+        <a href="portfolio.html">Portfolio</a>
+        <a href="team.html">Team</a>
+      </div>
+      <div class="footer-col">
+        <h4>CONTACT</h4>
+        <a href="#">UIU, Dhaka</a>
+        <a href="#">studenthub@uiu.ac.bd</a>
+        <a href="contact.html" class="highlight">Send a message →</a>
+      </div>
+    </div>
+    <div class="footer-bottom">© 2025 StudentHub · Built for UIU students</div>
+  </footer>
+
+  <script src="gigs.js"></script>
+</body>
+</html>

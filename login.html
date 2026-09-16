@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>StudentHub - Sign In</title>
+<link rel="stylesheet" href="login.css">
+</head>
+<body>
+
+  <div class="auth-page">
+    <div class="auth-brand">
+      <div class="logo-icon">SH</div>
+      <h1>Welcome to <span class="hub">StudentHub</span></h1>
+      <p>Connect. Collaborate. Create.</p>
+    </div>
+
+    <div class="auth-card">
+      <div class="auth-tabs">
+        <a href="login.html" class="active">Sign In</a>
+        <a href="register.html">Register</a>
+      </div>
+
+      <form class="auth-form" id="loginForm">
+        <div class="form-message" id="formMessage"></div>
+
+        <div class="field" id="emailField">
+          <label for="emailInput">University Email</label>
+          <input type="email" id="emailInput" placeholder="you@uiu.ac.bd" autocomplete="email">
+          <div class="field-error">Please enter a valid email address.</div>
+        </div>
+
+        <div class="field" id="passwordField">
+          <label for="passwordInput">Password</label>
+          <input type="password" id="passwordInput" placeholder="Your password" autocomplete="current-password">
+          <div class="field-error">Please enter your password.</div>
+        </div>
+
+        <button type="submit" class="btn-submit">Sign In →</button>
+      </form>
+
+      <div class="demo-wrapper">
+        <div class="demo-box">
+          <div class="demo-value">Use the email &amp; password you register with</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="auth-footer-link">
+      Don't have an account? <a href="register.html">Register</a>
+    </div>
+
+    <a href="Admin%20Login/admin-login.html" class="admin-portal-link">
+      🛡️ Site Owner / Admin Login →
+    </a>
+  </div>
+  <script src="login.js"></script>
+</body>
+</html>

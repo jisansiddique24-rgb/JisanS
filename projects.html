@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>StudentHub - Projects</title>
+<link rel="stylesheet" href="projects.css">
+</head>
+<body>
+
+  <header>
+    <a class="logo" href="home.html">
+      <div class="logo-icon">SH</div>
+      <span class="logo-text">Student<span class="hub">Hub</span></span>
+    </a>
+
+    <nav>
+      <a href="home.html">Home</a>
+      <a href="gigs.html">Gigs</a>
+      <a href="projects.html" class="active">Projects</a>
+      <a href="portfolio.html">Portfolio</a>
+      <a href="team.html">Team</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+
+    <div class="user-menu" id="userMenu">
+      <div class="user-chip" id="userChip">
+        <div class="avatar" id="headerAvatar">--</div>
+        <div class="info">
+          <div class="username" id="headerUsername">Loading…</div>
+          <div class="role" id="headerRole"></div>
+        </div>
+        <span class="chevron">▾</span>
+      </div>
+      <div class="dropdown">
+        <a href="portfolio.html">👤 My Profile</a>
+        <a href="gigs.html#post-gig">💼 Post a Gig</a>
+        <div class="divider"></div>
+        <a href="#" class="logout" id="headerLogout">🚪 Log Out</a>
+      </div>
+    </div>
+  </header>
+
+  <div class="page">
+    <div class="eyebrow">FIND YOUR TEAM</div>
+
+    <div class="projects-title-row">
+      <h1>Available Projects</h1>
+      <button class="btn btn-primary" id="postProjectBtn">+ Post a Project</button>
+    </div>
+
+    <p class="projects-subtitle" id="projectsSubtitle">Loading projects…</p>
+
+    <div class="filter-pills" id="filterPills">
+      <button class="pill active" data-category="All" type="button">All</button>
+      <button class="pill" data-category="Web Dev" type="button">Web Dev</button>
+      <button class="pill" data-category="Mobile" type="button">Mobile</button>
+      <button class="pill" data-category="Design" type="button">Design</button>
+      <button class="pill" data-category="Research" type="button">Research</button>
+      <button class="pill" data-category="Data" type="button">Data</button>
+    </div>
+
+    <div class="projects-grid" id="projectsGrid"></div>
+  </div>
+
+  <!-- ===== POST A PROJECT MODAL ===== -->
+  <div class="modal-overlay hidden" id="postProjectOverlay">
+    <div class="modal-panel">
+      <div class="modal-header">
+        <h2>Post a Project</h2>
+        <button class="modal-close" id="modalCloseBtn" type="button">✕</button>
+      </div>
+      <p class="modal-subhead">You'll be listed as the project leader.</p>
+
+      <form id="postProjectForm">
+        <div class="field" id="titleField">
+          <label for="titleInput">Project Title</label>
+          <input type="text" id="titleInput" placeholder="e.g. StudentHub — Campus Freelance Platform">
+          <div class="field-error">Please enter a project title.</div>
+        </div>
+
+        <div class="field-row">
+          <div class="field" id="categoryField">
+            <label for="categoryInput">Category</label>
+            <select id="categoryInput">
+              <option value="" disabled selected>Select category</option>
+              <option value="Web Dev">Web Dev</option>
+              <option value="Mobile">Mobile</option>
+              <option value="Design">Design</option>
+              <option value="Research">Research</option>
+              <option value="Data">Data</option>
+            </select>
+            <div class="field-error">Please select a category.</div>
+          </div>
+
+          <div class="field" id="teamSizeField">
+            <label for="teamSizeInput">Team Size Needed</label>
+            <input type="number" id="teamSizeInput" min="1" placeholder="e.g. 4">
+            <div class="field-error">Please enter how many members you need (at least 1).</div>
+          </div>
+        </div>
+
+        <div class="field" id="descField">
+          <label for="descInput">Project Details</label>
+          <textarea id="descInput" rows="3" placeholder="What are you building? What's the goal?"></textarea>
+          <div class="field-error">Please enter project details.</div>
+        </div>
+
+        <div class="field" id="rolesField">
+          <label for="rolesInput">Roles Needed</label>
+          <input type="text" id="rolesInput" placeholder="e.g. Frontend Dev, UI Designer, Researcher">
+          <div class="field-hint">Separate with commas.</div>
+        </div>
+
+        <div class="field" id="setJoinCodeField">
+          <label for="setJoinCodeInput">Set a Join Code</label>
+          <input type="text" id="setJoinCodeInput" placeholder="e.g. TEAM2026" autocomplete="off">
+          <div class="field-hint">Only share this with people you actually want on your team — they'll need to enter it to join.</div>
+          <div class="field-error">Please set a join code (at least 4 characters).</div>
+        </div>
+
+        <div class="modal-actions">
+          <button type="button" class="btn btn-outline" id="modalCancelBtn">Cancel</button>
+          <button type="submit" class="btn btn-primary">Post Project →</button>
+        </div>
+      </form>
+
+      <!-- Shown after a successful post, in place of the form -->
+      <div class="post-success hidden" id="postSuccess">
+        <div class="success-icon">🎉</div>
+        <h3>Project posted!</h3>
+        <p>Your project is live. Remember the join code you set — people will need it to join your team.</p>
+        <div class="code-display">
+          <span id="generatedCode"></span>
+          <button type="button" id="copyCodeBtn">Copy</button>
+        </div>
+        <button type="button" class="btn btn-primary" id="postSuccessDoneBtn">Done</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== PROJECT DETAILS PANEL ===== -->
+  <div class="modal-overlay hidden" id="projectDetailsOverlay">
+    <div class="modal-panel details-panel">
+      <div class="modal-header">
+        <h2 id="detailsTitle">Project Title</h2>
+        <button class="modal-close" id="detailsCloseBtn" type="button">✕</button>
+      </div>
+
+      <div class="details-top-row">
+        <span class="badge" id="detailsBadge"></span>
+        <span class="team-progress" id="detailsProgress"></span>
+      </div>
+
+      <p class="details-desc" id="detailsDesc"></p>
+
+      <div class="details-section">
+        <h4>Roles Needed</h4>
+        <div class="roles-needed" id="detailsRoles"></div>
+      </div>
+
+      <div class="details-leader-row">
+        <span class="crown">👑</span> Led by <b id="detailsLeaderName"></b> · <span id="detailsTime"></span>
+      </div>
+
+      <!-- Filled dynamically: either the leader's own code chip, or Contact + Join buttons -->
+      <div class="details-actions" id="detailsActions"></div>
+    </div>
+  </div>
+
+  <!-- ===== ENTER JOIN CODE MODAL ===== -->
+  <div class="modal-overlay hidden" id="joinCodeOverlay">
+    <div class="modal-panel modal-panel-small">
+      <div class="modal-header">
+        <h2 id="joinModalTitle">Join Project</h2>
+        <button class="modal-close" id="joinModalCloseBtn" type="button">✕</button>
+      </div>
+      <p class="modal-subhead">Ask the project leader for the join code.</p>
+
+      <form id="joinCodeForm">
+        <div class="field" id="joinCodeField">
+          <label for="joinCodeInput">Join Code</label>
+          <input type="text" id="joinCodeInput" placeholder="e.g. AB12CD" autocomplete="off">
+          <div class="field-error" id="joinCodeError">Incorrect join code. Ask the team leader for the code.</div>
+        </div>
+
+        <div class="modal-actions">
+          <button type="button" class="btn btn-outline" id="joinModalCancelBtn">Cancel</button>
+          <button type="submit" class="btn btn-primary">Join Team →</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <footer>
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a class="logo" href="home.html">
+          <div class="logo-icon">SH</div>
+          <span class="logo-text">Student<span class="hub">Hub</span></span>
+        </a>
+        <p>The campus platform connecting students for freelance work, research collaboration, and portfolio building.</p>
+      </div>
+      <div class="footer-col">
+        <h4>PLATFORM</h4>
+        <a href="gigs.html">Gigs</a>
+        <a href="projects.html">Projects</a>
+        <a href="portfolio.html">Portfolio</a>
+        <a href="team.html">Team</a>
+      </div>
+      <div class="footer-col">
+        <h4>CONTACT</h4>
+        <a href="#">UIU, Dhaka</a>
+        <a href="#">studenthub@uiu.ac.bd</a>
+        <a href="contact.html" class="highlight">Send a message →</a>
+      </div>
+    </div>
+    <div class="footer-bottom">© 2025 StudentHub · Built for UIU students</div>
+  </footer>
+
+  <script src="projects.js"></script>
+</body>
+</html>

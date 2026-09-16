@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>StudentHub - Contact</title>
+<link rel="stylesheet" href="contact.css">
+</head>
+<body>
+
+  <header>
+    <a class="logo" href="home.html">
+      <div class="logo-icon">SH</div>
+      <span class="logo-text">Student<span class="hub">Hub</span></span>
+    </a>
+
+    <nav>
+      <a href="home.html">Home</a>
+      <a href="gigs.html">Gigs</a>
+      <a href="projects.html">Projects</a>
+      <a href="portfolio.html">Portfolio</a>
+      <a href="team.html">Team</a>
+      <a href="contact.html" class="active">Contact</a>
+    </nav>
+
+    <div class="user-menu" id="userMenu">
+      <div class="user-chip" id="userChip">
+        <div class="avatar" id="headerAvatar">--</div>
+        <div class="info">
+          <div class="username" id="headerUsername">Loading…</div>
+          <div class="role" id="headerRole"></div>
+        </div>
+        <span class="chevron">▾</span>
+      </div>
+      <div class="dropdown">
+        <a href="portfolio.html">👤 My Profile</a>
+        <a href="gigs.html#post-gig">💼 Post a Gig</a>
+        <div class="divider"></div>
+        <a href="#" class="logout" id="headerLogout">🚪 Log Out</a>
+      </div>
+    </div>
+  </header>
+
+  <div class="page">
+
+    <!-- ===== Shown when arriving via "Hire Me" (contact.html?to=email&name=Name) ===== -->
+    <div id="personalContactSection" style="display:none;">
+      <h1>Send a Message</h1>
+      <p class="page-subtitle">Reach out directly — this opens as a real email from your inbox.</p>
+
+      <div class="card">
+        <div class="recipient-chip">
+          <div class="avatar" id="recipientAvatar">--</div>
+          <div>
+            <div class="to-label">Messaging</div>
+            <div class="to-name" id="recipientName">—</div>
+          </div>
+        </div>
+
+        <div class="form-message" id="personalFormMessage"></div>
+
+        <form id="personalContactForm">
+          <div class="field" id="yourEmailField">
+            <label for="yourEmailInput">Your Email</label>
+            <input type="email" id="yourEmailInput" placeholder="you@uiu.ac.bd">
+            <div class="field-error">Please enter a valid email address.</div>
+          </div>
+
+          <div class="field" id="messageField">
+            <label for="messageInput">Message</label>
+            <textarea id="messageInput" rows="5" placeholder="Write your message here…"></textarea>
+            <div class="field-error">Please write a message.</div>
+          </div>
+
+          <button type="submit" class="btn">Send Message →</button>
+        </form>
+      </div>
+    </div>
+
+    <!-- ===== Default Contact page (general info + Support) ===== -->
+    <div id="defaultContactSection">
+      <h1>Contact Us</h1>
+      <p class="page-subtitle">Reach the StudentHub team or get help from Support.</p>
+
+      <div class="card">
+        <h2>Get in touch</h2>
+        <p class="card-subtext">General information about StudentHub.</p>
+
+        <div class="info-row"><span class="icon">📍</span> UIU, Dhaka</div>
+        <div class="info-row"><span class="icon">✉️</span> studenthub@uiu.ac.bd</div>
+
+        <div class="support-toggle-row">
+          <p>Have a question or an issue? Chat with Support.</p>
+          <button class="support-btn" id="supportToggleBtn">💬 Contact Support</button>
+        </div>
+      </div>
+
+      <div class="card" id="supportCard" style="display:none;">
+        <div class="chat-panel open" id="chatPanel">
+          <div class="chat-header">
+            <div class="avatar">SH</div>
+            <div>
+              <div class="chat-title">StudentHub Support</div>
+              <div class="chat-status">● Usually replies in a few minutes</div>
+            </div>
+          </div>
+          <div class="chat-messages" id="chatMessages"></div>
+          <div class="chat-input-row">
+            <input type="text" id="chatInput" placeholder="Type a message…">
+            <button type="button" id="chatSendBtn">Send</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <script src="contact.js"></script>
+</body>
+</html>
